@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 // THIS IS WRONG NEVER DO THAT !! Only for the task we put the DB Link here!! NEVER DO THAAAT AGAIN !!
 //Check db connection links in README file
-const MongoURI = '' ;
+const MongoURI = 'mongodb+srv://atlasDB:atlasDB@cluster0.vt5cm.mongodb.net/test' ;
 
 
 //App variables
