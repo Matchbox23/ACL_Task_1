@@ -24,6 +24,9 @@ mongoose.connect(MongoURI)
   })
 })
 .catch(err => console.log(err));
+
+
+
 /*
                                                     Start of your code
 */
@@ -33,8 +36,8 @@ app.get("/home", (req, res) => {
 
 // #Routing to userController here
 
-
-
+const routes = require('./Routes/userController');
+app.use(routes);
 
 /*
                                                     End of your code
