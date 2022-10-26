@@ -10,11 +10,11 @@ router.post('/trypost', (req, res) => {
         Name: 'Yousef Korayem',
         Age: '100',
         StudentId: '49-5052',
-        Job: 'Paladin',
+        Job: 'Student',
         PhoneNumber: '01009000223',
         MartialStatus: 'Divorced Repeatedly',
-        LivesIn: 'Planet Mars',
-        BornIn: 'Planet Earth',
+        LivesIn: 'Cairo',
+        BornIn: 'Cairo',
         Email: 'yousef.korayem@student.guc.edu.eg',
 
     })
@@ -24,13 +24,27 @@ router.post('/trypost', (req, res) => {
     res.status(200).json(data);
 })
 
-router.post('/trypostdynamic', (req, res) => {
-    const data = new Model({
-        Name: req.body.Name,
-        Age: req.body.Age
-    })
+//Get
+router.get('/getOne/:id', async (req, res) => {
+    try{
+        const data = await Model.findById(req.params.id);
+        res.json(data);
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+})
 
-    data.save();
-    console.log(data);
-    res.status(200).json(data);
+//Put
+router.put('/tryput/:id', async (req, res) => {
+    var idOfObject = req.params.id;
+    Model.findByIdAndUpdate(idOfObject, {Name: 'Chicken Burger'}, function(err, docs) {
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log("Updated : ", idOfObject);
+        }
+    })
+    res.status(500).json({Name: 'Chicken Burger'});
 })

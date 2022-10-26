@@ -1,9 +1,9 @@
 // External variables
 const express = require("express");
 const mongoose = require('mongoose');
-// THIS IS WRONG NEVER DO THAT !! Only for the task we put the DB Link here!! NEVER DO THAAAT AGAIN !!
-//Check db connection links in README file
-const MongoURI = 'mongodb+srv://atlasDB:atlasDB@cluster0.vt5cm.mongodb.net/test' ;
+const dotenv = require('dotenv');
+dotenv.config();
+const MongoURI = process.env.ATLAS_URI;
 
 
 //App variables
